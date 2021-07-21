@@ -4,7 +4,7 @@ require_once('model/CommentManager.php');
 
 function addComment($postId, $author, $comment)
 {
-	$commentManager = new \Saralb\Blog\Model\CommentManager();
+	$commentManager = new CommentManager();
 	$affectedLines = $commentManager->postComment($postId, $author, $comment);
 
 	if ($affectedLines === false)
@@ -14,36 +14,28 @@ function addComment($postId, $author, $comment)
 	else {
 		header('Location: index.php?action=post&id=' . $postId);
 	}
+
+	require('view/commentsView.php');
 }
 
+function reportComment($commentId, $pseudo)
+{
+	$commentManager = new CommentManager();
+	$reportComment = $commentManager->reportComment($commentId, $pseudo);
 
+	if ($reportComment === false)
+	{
+		throw new Exception('Impossible de signaler le commentaire !');
+	}
+	else {
+		header('Location: index.php');
+	}
+}
 
+function reportedComment()
+{
+	$commentManager = new CommentManager();
+	$reportedComments = $commentManager->reportedComments();
 
-
-
-
-
-
-	// $post = [];
-	// // Effectuer ici la requête qui insère le message
-	// if (isset($_POST['comment']))
-	// {
-
-	// 	foreach ($_POST as $key => $value) {
-	// 	// Nettoyer les données
-	// 		$post[$key] = htmlspecialchars($value);
-	// 		// Récupérer de $_POST dans tableau $post
-	// 	}
-	// 	$id_post = (int) $_GET['post'];
-	// 	$query = $db->prepare('INSERT INTO comments(id_post, author, comment) VALUES(:id_post, :author, :comment)');
-	// 	$query->bindValue(':id_post', $id_post);
-	// 	$query->bindValue(':author', $_SESSION['pseudo']);
-	// 	$query->bindValue(':comment', $post['comment']);
-
-	// 	if($query->execute())
-	// 	{
-	// 		header('Location: comments.php?id='.$id_post);
-	// 	} else {
-	// 	var_dump($_POST);
-	// 	}
-	// };
+	require('view/reportedCommentsView.php');
+}
