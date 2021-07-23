@@ -82,7 +82,7 @@
 								Publié le <?=htmlspecialchars($data['date_creation_fr']); ?>
 							</p>
 							<p class="card-text">
-							    <?=htmlspecialchars($data['content']); ?>
+							    <?=htmlspecialchars($data['content200chars']); ?>
 							</p>
 							<a href="index.php?action=post&id=<?=$data['id']; ?>"><input type="button" value="Lire la suite"></a>
 
