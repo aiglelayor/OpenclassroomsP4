@@ -14,28 +14,7 @@ class UserManager extends DbConnectManager
 
 		$userinfo = $requser->fetch();
 
-		return $userinfo;
-
-		// $userexists = $requser->rowCount();
-		// if($userexists == 1)
-		// {
-		// 	$userinfo = $requser->fetch();
-		// 	$password_match = password_verify($passconnect, $userinfo['pass']);
-
-		// 	if($password_match)
-		// 	{
-		// 		$_SESSION['id'] = $userinfo['id'];
-		// 		$_SESSION['isAdmin'] = $userinfo['isAdmin'];
-		// 		$_SESSION['pseudo'] = $userinfo['pseudo'];
-		// 		$_SESSION['email'] = $userinfo['email'];
-		// 		//header('Location: postsManager.php');	
-		// 	}
-			
-		// }
-		// else
-		// {
-		// 	throw new Exception("Il y a une erreur dans votre pseudo ou mot de passe.");
-		// }	
+		return $userinfo;	
 	}
 
 	public function logout()
@@ -86,47 +65,3 @@ class UserManager extends DbConnectManager
 		}
 	}
 }
-
-
-// function login()
-// {
-// 	$db = dbConnect();
-// 	$pseudoconnect = htmlspecialchars($_POST['pseudoconnect']);
-// 	$passconnect = $_POST['passconnect'];
-
-// 	if(!empty($pseudoconnect) AND !empty($passconnect))
-// 	{
-// 		$requser = $db->prepare("SELECT * FROM members WHERE pseudo = ?");
-	
-// 		// On ajoute les champs qui correspondent à la requête dans un tableau.
-// 		$requser->execute(array($pseudoconnect));
-
-// 		$userexist = $requser->rowCount();
-// 			var_dump('verification');
-// 		if($userexist == 1)
-// 		{
-// 			$userinfo = $requser->fetch();
-// 			$password_match = password_verify($passconnect, $userinfo['pass']);
-
-// 			if($password_match)
-// 			{
-// 				$_SESSION['id'] = $userinfo['id'];
-// 				$_SESSION['pseudo'] = $userinfo['pseudo'];
-// 				$_SESSION['email'] = $userinfo['email'];
-// 				header('Location: postsManager.php');	
-// 			}
-			
-// 		}
-// 		else
-// 		{
-// 			$erreur = "Il y a une erreur dans votre pseudo ou mot de passe.";
-// 		}
-
-// 	}
-// 	else
-// 	{
-// 		$erreur = "Tous les champs doivent être complétés.";
-// 	}
-
-// 	return $erreur;
-// }

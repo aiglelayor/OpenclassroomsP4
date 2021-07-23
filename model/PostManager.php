@@ -71,8 +71,4 @@ class PostManager extends DbConnectManager
 			$postId
 		));
 	}
-
-
-
-	//public function savePost($postId)
 }

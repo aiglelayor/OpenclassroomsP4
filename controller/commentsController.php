@@ -1,7 +1,6 @@
 <?php
 
 require_once('model/CommentManager.php');
-// coucou
 function addComment($postId, $author, $comment)
 {
 	$commentManager = new CommentManager();

@@ -6,8 +6,10 @@ require_once('model/CommentManager.php');
 
 function listPosts()
 {
-	$postManager = new PostManager(); // Création d'un objet
-	$posts = $postManager->getPosts(); // Appel d'une fonction de cet objet
+	// Création d'un objet
+	$postManager = new PostManager();
+	// Appel d'une fonction de cet objet
+	$posts = $postManager->getPosts();
 
 	require('view/postsView.php');
 }

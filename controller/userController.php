@@ -35,7 +35,6 @@ function userLogin($pseudoconnect, $passconnect)
 		$showErrors = true;
 		$pseudoconnect = $pseudoconnect;
 		require('view/userView.php');
-		//die(var_dump($requete->errorInfo()));
 	}
 
 	//$userLogin = $userManager->login($pseudoconnect, $passconnect);
@@ -114,7 +113,7 @@ function createUser($pseudo, $email, $pass)
 	{
 		$errors[] = '<div>L\'adresse mail est invalide.</div>';
 	}else {
-		// Vérifier si le mail existe en bdd
+		// verify email exists in db
 		$emailexists = $userManager->emailExists($email);
 
 		if($emailexists == 1)
@@ -136,6 +135,3 @@ function createUser($pseudo, $email, $pass)
 	}
 
 }
-
-
-
