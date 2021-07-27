@@ -57,13 +57,6 @@
 		    </a>
 		  </div>
 		</div>
-
-<!-- 			<div class="container hero_section">
-				<div class="col text_hero_section">
-						<h3 class="text-center">« Un roman qui vous embarque dans une aventure à couper le souffle ! » <span class="italique">New York Times</span></h3>
-				</div>
-			</div> -->
-
 			<div class="row">
 				<h1 class="section_titre text-center my-5">CHAPITRES PUBLIÉS</h2>
 			</div>
@@ -72,8 +65,9 @@
 				while ($data = $posts->fetch())
 				{
 				?>
-					<div class="col-sm-12 col-md-4 card">
-						<div class="card-body">
+					<div class="col-sm-12 col-md-4 p-5">
+						<div class="card">
+							<div class="card-body">
 							<img class="card-img-top" src="public/images/slide1.jpg" alt="Un billet simple pour l'Alaska">
 							<h3 class="card-title">
 							    <?=htmlspecialchars($data['title']); ?>
@@ -82,7 +76,7 @@
 								Publié le <?=htmlspecialchars($data['date_creation_fr']); ?>
 							</p>
 							<p class="card-text">
-							    <?=htmlspecialchars($data['content200chars']); ?>
+							    <?=htmlspecialchars($data['content_200chars']); ?>
 							</p>
 							<a href="index.php?action=post&id=<?=$data['id']; ?>"><input type="button" value="Lire la suite"></a>
 
@@ -96,7 +90,9 @@
 							<?php
 							}
 							?>
-						</div>		
+						</div>
+						</div>
+								
 					</div>
 				<?php
 				}
