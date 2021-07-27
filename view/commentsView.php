@@ -27,12 +27,43 @@
 		<p>
 			<?=htmlspecialchars($post['content'])?>		
 		</p>
-
-		<h2>
-			<strong>Commentaires</strong>
-		</h2>
+		
+		<h2>Laissez un commentaire :</h2>
+		
+		<form action="index.php?action=addComment&amp;id=<?=$post['id']; ?>" method="post">
+			<table>
+				<div class="form-group">
+					<?php
+						if(empty($_SESSION))
+						{
+					?>
+						<label for="pseudo">Votre nom : </label>
+						<input type="text" class="form-control" name="pseudo" required>
+						<small class="form-text text-muted">Vous pouvez également créer un compte, votre pseudo/nom ne vous sera plus demandé. Nous serons ravis de vous compter parmi notre communauté de lecteur ! :-)</small>
+					<?php
+						}
+					?>
+				</div>
+				<div class="form-group">
+					<label for="comment">Commentaire :</label>
+					<textarea class="form-control" rows="3" name="comment" required></textarea>
+				</div>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" id="conditionsGenerales">
+					<label class="form-check-label" for="conditionsGenerales">J'accepte que ce site publie et enregistre les commentaires que je publie délibéramment.</label>
+				</div>
+				<div class="form-group">
+					<button name="" type="submit" class="btn btn-primary">Publier le commentaire</button>
+				</div>				
+			</table>
+		</form>
 
 		<?php
+		if(!empty($comments)){			
+		?>
+			<h2>Commentaires</h2>
+		<?php
+		}
 		foreach($comments as $com) {
 		?>
 			<p>
@@ -55,22 +86,8 @@
 		<?php
 		}
 		?>
+	</container>
 
-		<h2>Laissez un commentaire :</h2>
-		
-		<form action="index.php?action=addComment&amp;id=<?=$post['id']; ?>" method="post">
-			<p>
-				<?php
-				if(empty($_SESSION))
-				{
-				?>
-					<label>Votre nom : <input type="text" name="pseudo"></label>
-				<?php
-				}
-				?>
-				<label>Commentaire : <input type="text" name="comment"></label>
-			</p>
-		</form>
 		
 		<?php require ('view/footer.php')?>
 
