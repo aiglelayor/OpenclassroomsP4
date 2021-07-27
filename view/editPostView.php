@@ -3,17 +3,15 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<!-- <script src="https://cdn.tiny.cloud/1/cjyum6e3ja0scdlceon58esyob6icmcnnw21llwrcjot2pnu/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-	<script>
-      tinymce.init({
-        selector: '#post_content'
-        forced_root_block : "",
-        force_br_newlines : true,
-        force_p_newlines : false,
-      });
-    </script> -->
 	<script src="https://cdn.tiny.cloud/1/cjyum6e3ja0scdlceon58esyob6icmcnnw21llwrcjot2pnu/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
- 	<script>tinymce.init({selector:'#post_content'});</script>
+ 	<script>tinymce.init({
+		 selector:'#post_content',
+		 forced_root_block : "",
+    	force_br_newlines : true,
+        force_p_newlines : false,
+	});
+	</script>
+
 	<title>Modifier Article</title>
 </head>
 <body>

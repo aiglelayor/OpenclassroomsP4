@@ -10,7 +10,7 @@ try {
 			return $db;
 
 			// Close it here
-			$sth = null;
+			// $sth = null;
 			$dbh = null;
 		}
 

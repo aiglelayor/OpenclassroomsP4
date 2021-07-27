@@ -22,7 +22,7 @@
 
 	<nav class="navbar navbar-expand-lg ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	    	<a class="navbar-brand" href="index.html">Jean Forteroche <span>Écrivain</span></a>
+	    	<a class="navbar-brand" href="index.php?action=listPosts">Jean Forteroche <span>Écrivain</span></a>
 
 	    	<form action="#" class="searchform order-sm-start order-lg-last">
 		        <div class="form-group d-flex">
