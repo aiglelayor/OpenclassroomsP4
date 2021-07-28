@@ -9,7 +9,6 @@ function userLogin($pseudoconnect, $passconnect)
 	$errors = [];
 	$showErrors = false;
 	$success = false;
-	//$pseudoconnect = '';
 
 	$userexists = $userManager->userExists($pseudoconnect);
 
@@ -84,7 +83,7 @@ function createUser($pseudo, $email, $pass)
 	// verify pseudo
 	if(!preg_match("#^[a-zA-Z0-9À-ú\.:\?\&',\s-]{3,25}#", $pseudo))
 	{
-		$errors[] = '<div>Votre pseudo doit comporter entre 2 et 25 caractères.</div>';
+		$errors[] = '<div>Votre pseudo doit contenir entre 2 et 25 caractères.</div>';
 	}else {
 		$userexists = $userManager->userExists($pseudo);
 
@@ -99,7 +98,11 @@ function createUser($pseudo, $email, $pass)
 	{
 		$errors[] = '<div>Veuillez saisir un mot de passe.</div>';
 	}
-	elseif($_POST['pass'] != $_POST['pass_confirm'])
+	elseif(!preg_match("#^[a-zA-Z0-9À-ú\.:\?\&',\s-]{5,25}#", $pass))
+	{
+		$errors[] = '<div>Votre mot de passe doit contenir entre 2 et 25 caractères.</div>';
+	}
+	elseif ($_POST['pass'] != $_POST['pass_confirm'])
 	{
 		$errors[] = '<div>Les deux mots de passe ne sont pas identiques.</div>';
 	}

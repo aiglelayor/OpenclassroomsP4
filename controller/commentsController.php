@@ -27,7 +27,7 @@ function reportComment($commentId, $pseudo)
 		throw new Exception('Impossible de signaler le commentaire !');
 	}
 	else {
-		header('Location: index.php');
+		header('Location: index.php?action=post&id=' . $_GET[id]);
 	}
 }
 

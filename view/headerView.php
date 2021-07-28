@@ -3,12 +3,13 @@
 	<div class="wrap">
 		<div class="container">
 			<div class="row justify-content-right">
-				<div class="col m-auto">
+				<div class="col m-auto div_email">
 					<p class="mb-0 contact"><span class="fas fa-envelope"></span> contact@jeanforteroche.com</p>
 				</div>
 				<div class="col d-flex justify-content-end">
 					<div class="social-media">
 			    		<p class="mb-0 d-flex">
+							<a href="mailto:contact@jeanforteroche.com" id="email_header" class="d-flex align-items-center justify-content-center"><span class="fas fa-envelope"><i class="sr-only">Email</i></span></a>
 			    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fab fa-facebook-f"><i class="sr-only">Facebook</i></span></a>
 			    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fab fa-twitter"><i class="sr-only">Twitter</i></span></a>
 			    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fab fa-instagram"><i class="sr-only">Instagram</i></span></a>
@@ -43,20 +44,15 @@
 								<a class="dropdown-item" href="index.php?action=login">Connexion</a>
 							<?php 
 							}
-							if(empty($_SESSION['id']))
-							{
-							?>
-								<a class="dropdown-item" href="index.php?action=formCreateUser">Créer compte</a>
-							<?php 
-							}
 							if(!empty($_SESSION['id']))
 							{
 							?>
+								<p class="dropdown-item text-success">Bienvenue <?=htmlspecialchars($_SESSION['pseudo']) ?></p>
 								<a class="dropdown-item" href="index.php?action=userLogout">Se déconnecter</a>
-								<p class="text-white">Bienvenue <?=htmlspecialchars($_SESSION['pseudo']) ?></p>
 							<?php 
 							}
 							?>
+							<a class="dropdown-item" href="index.php?action=formCreateUser">Créer compte</a>
 		             	</div>
 	            	</li>
 	            </ul>
@@ -101,7 +97,6 @@
 					</li>	            
 	        	</ul>
 	      	</div>
-
 	    </div>
   	</nav>
 <!-- END nav -->

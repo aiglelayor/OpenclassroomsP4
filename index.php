@@ -55,12 +55,22 @@ try {
 			$pseudoconnect = htmlspecialchars($_POST['pseudoconnect']);
 			$passconnect = $_POST['passconnect'];
 
+			$errors = [];
+			$showErrors = false;
+			$success = false;
+
 			if(!empty($pseudoconnect) AND !empty($passconnect))
 			{
 				userLogin($pseudoconnect, $passconnect);
 			}
 			else {
-				throw new Exception("Tous les champs doivent être complétés.", 1);
+				$errors[] = 'Tous les champs doivent être complétés.';
+				$showErrors = true;
+
+				if(!empty($pseudoconnect)){
+					$pseudoconnect = $pseudoconnect;
+				}
+				require('view/userView.php');
 			}
 			
 		}
@@ -74,16 +84,26 @@ try {
 		}
 		elseif($_GET['action'] == 'createUser')
 		{
+			$pseudo = htmlspecialchars($_POST['pseudo']);
+			$email = htmlspecialchars($_POST['email']);
+			$pass = $_POST['pass'];
+
 			// Putting $_POST keys in a array
-			if (!empty($_POST['forminscription']))
+			if (!empty($pseudo) AND !empty($pass) AND !empty($pass))
 			{
 				
 				createUser($_POST['pseudo'], $_POST['email'], $_POST['pass']);
 
 			}
 			else {
-				throw new Exception("Utilsateur non créé.", 1);
-				
+				$errors[] = 'Tous les champs doivent être complétés.';
+				$showErrors = true;
+
+				if(!empty($pseudoconnect)){
+					$pseudoconnect = $pseudoconnect;
+					$email = $email;
+				}
+				require('view/createUserView.php');
 			}
 		}
 		elseif($_GET['action'] == 'editPost')
@@ -138,9 +158,9 @@ try {
 		}
 		elseif($_GET['action'] == 'reportComment')
 		{
-			if(!empty($_SESSION) && isset($_GET['id']) && $_GET['id'] > 0)
+			if(!empty($_SESSION) && ($_GET['id']) && $_GET['comId'] > 0)
 			{
-				$commentId = htmlspecialchars($_GET['id']);
+				$commentId = htmlspecialchars($_GET['comId']);
 				$pseudo = htmlspecialchars($_SESSION['pseudo']);
 				reportComment($commentId, $pseudo);
 			}

@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, inital-scale=1.0, shrink-to-fit=no"/>
   		
-		<title>Blog TP P4</title>
+		<title>Billet simple pour l'Alaska</title>
 
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 		<link href="public/fonts/css/fontawesome.css" rel="stylesheet">
@@ -99,7 +99,7 @@
 			</div>
 		</div>
 		
-		<?php require ('view/footer.php')?>
+		<?php require ('view/footerView.php')?>
 
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

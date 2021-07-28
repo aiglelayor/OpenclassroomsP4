@@ -25,12 +25,15 @@
 			<h2 class="section_titre text-center my-5"><?=htmlspecialchars($post['title'])?></h2>
 		</div>
 		<p>
-			<?=htmlspecialchars($post['content'])?>		
+			<?=htmlspecialchars($post['content'])?>
+			<?php
+			var_dump($post);
+			?>
 		</p>
 		
-		<h2>Laissez un commentaire :</h2>
+		<h2 class="text-center pt-5">Laissez un commentaire :</h2>
 		
-		<form action="index.php?action=addComment&amp;id=<?=$post['id']; ?>" method="post">
+		<form class="pb-5 m-auto" action="index.php?action=addComment&amp;id=<?=$post['id']; ?>" method="post">
 			<table>
 				<div class="form-group">
 					<?php
@@ -48,10 +51,6 @@
 					<label for="comment">Commentaire :</label>
 					<textarea class="form-control" rows="3" name="comment" required></textarea>
 				</div>
-				<div class="form-check">
-					<input type="checkbox" class="form-check-input" id="conditionsGenerales">
-					<label class="form-check-label" for="conditionsGenerales">J'accepte que ce site publie et enregistre les commentaires que je publie délibéramment.</label>
-				</div>
 				<div class="form-group">
 					<button name="" type="submit" class="btn btn-primary">Publier le commentaire</button>
 				</div>				
@@ -62,34 +61,34 @@
 		if(!empty($comments)){			
 		?>
 			<h2>Commentaires</h2>
-		<?php
-		}
-		foreach($comments as $com) {
-		?>
-			<p>
-				<strong><?=htmlspecialchars($com['author'])?></strong> le <?=htmlspecialchars($com['comment_date_fr'])?> </br><?=htmlspecialchars($com['comment'])?>
-			</p>
-			<?php
-			if(!empty($_SESSION))
-			{
-			?>
-				<a href="index.php?action=reportComment&id=<?=$com['id']; ?>"><input type="button" value="Signaler"></a>
-			<?php
-			}else {
-			?>
-				<a href="index.php?action=login"><input type="button" value="Se connecter pour signaler"></a>
-			<?php
-			}
-			?>
-			
-		
-		<?php
-		}
-		?>
-	</container>
+			<div>
+				<?php
+				}
+				foreach($comments as $com) {
+				?>
+					<p>
+						<strong><?=htmlspecialchars($com['author'])?></strong> le <?=htmlspecialchars($com['comment_date_fr'])?> </br><?=htmlspecialchars($com['comment'])?>
+					</p>
+					<?php
+					if(!empty($_SESSION))
+					{
+					?>
+						<a href="index.php?action=reportComment&comId=<?=$com['id']; ?>&amp;id=<?=$post['id']; ?>"><button type="button" class="btn btn-warning">Signaler</button></a>
+					<?php
+					}else {
+					?>
+						<a href="index.php?action=login"><button type="button" class="btn btn-primary">Se connecter pour signaler</button></a>
+					<?php
+					}
+					?>
+				<?php
+				}
+				?>
+		</div>
+	</section>
 
 		
-		<?php require ('view/footer.php')?>
+		<?php require ('view/footerView.php')?>
 
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
