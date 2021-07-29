@@ -44,11 +44,11 @@
 			</div>
 			<div class="mb-3">
 				<label for="pseudo" class="form-label">Pseudo</label>
-				<input type="text" name="pseudo" placeholder="Pseudo" class="form-control" id="pseudo" value="<?php if(isset($pseudo)) { echo $pseudo; } ?>">
+				<input type="text" name="pseudo" placeholder="Pseudo" class="form-control" id="pseudo" value="<?php if(isset($pseudo)) { echo htmlspecialchars($pseudo); } ?>">
 			</div>
 			<div class="mb-3">
 				<label for="email" class="form-label">Pseudo</label>
-				<input type="email" name="email" placeholder="Votre mail" class="form-control" id="email" value="<?php if(isset($email)) { echo $email; } ?>">
+				<input type="email" name="email" placeholder="Votre mail" class="form-control" id="email" value="<?php if(isset($email)) { echo htmlspecialchars($email); } ?>">
 			</div>
 			<div class="mb-3">
 				<label for="pass" class="form-label">Mot de passe</label>

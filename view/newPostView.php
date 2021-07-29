@@ -82,11 +82,11 @@
 				</div>
 				<div class="mb-3">
 					<label for="title" class="form-label">Titre</label>
-					<input type="text" name="title" placeholder="Titre de l'article" class="form-control" id="title" value="<?php if(isset($_POST['title'])) {echo $_POST['title'];}?>">
+					<input type="text" name="title" placeholder="Titre de l'article" class="form-control" id="title" value="<?php if(isset($_POST['title'])) {echo htmlspecialchars($_POST['title']);}?>">
 				</div>
 				<div class="mb-3">
 					<label for="content">Contenu :</label>
-					<textarea class="form-control" rows="60" name="content" placeholder="Contenu de l'article" id="content" aria-describedby="" required><?php if(isset($_POST['content'])) {echo $_POST['content'];}?></textarea>
+					<textarea class="form-control" rows="60" name="content" placeholder="Contenu de l'article" id="content" aria-describedby="" required><?php if(isset($_POST['content'])) {echo htmlspecialchars($_POST['content']);}?></textarea>
 					<div id="passwordHelpBlock" class="form-text">
 					</div>
 				</div>
