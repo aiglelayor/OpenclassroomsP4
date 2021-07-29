@@ -57,5 +57,20 @@ class CommentManager extends DbConnectManager
 		return $reportedComments;
 
 	}
+
+	function eraseComment($commentId)
+	{
+		$db = $this->dbConnect();
+
+		$req = $db->prepare('DELETE FROM comments WHERE id = ?');
+		$req_execute = $req->execute(array(
+			$commentId
+		));
+
+		if($req->execute())
+		{
+			$_SESSION['comment_erased'] = "Le commentaire a été supprimé.";
+		}
+	}
 }
 

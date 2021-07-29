@@ -52,7 +52,7 @@
 			</div>
 			<div class="mb-3">
 				<label for="pass" class="form-label">Mot de passe</label>
-				<input type="password" name="pass" class="form-control" id="pass" placeholder="Nouveau mot de passe" aria-describedby="passwordHelpBlock">
+				<input type="password" name="pass" class="form-control" id="pass" placeholder="Mot de passe" aria-describedby="passwordHelpBlock">
 			</div>
 			<div class="mb-3">
 				<label for="pass_confirm" class="form-label">Confirmer mot de passe</label>

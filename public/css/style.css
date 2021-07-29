@@ -8384,11 +8384,11 @@ h1, h2, h3, h4, h5,
 
 
 #post_card_home {
-  min-height: 425px;
+  min-height: 450px;
 }
   @media (max-width: 991.98px) {
     #post_card_home {
-      min-height: 550px;
+      min-height: 650px;
     }
   }
 

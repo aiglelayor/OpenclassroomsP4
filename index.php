@@ -149,6 +149,8 @@ try {
 		}
 		elseif($_GET['action'] == 'saveNewPost')
 		{
+			echo('here');
+			var_dump($_POST);
 			if(!empty($_POST['formnewpost']))
 			{
 				$title = htmlspecialchars($_POST['title']);
@@ -171,10 +173,17 @@ try {
 		}
 		elseif($_GET['action'] == 'reportedComments')
 		{
-			var_dump('here');
 			if(!empty($_SESSION['isAdmin']))
 			{
 				reportedComment();
+			}
+		}
+		elseif($_GET['action'] == 'eraseComment')
+		{
+			if(!empty($_SESSION['isAdmin']) && $_GET['id'] > 0)
+			{
+				$commentId = htmlspecialchars($_GET['id']);
+				eraseComment($commentId);
 			}
 		}
 	}

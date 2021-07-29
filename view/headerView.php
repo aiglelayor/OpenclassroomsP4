@@ -71,7 +71,7 @@
 		           		<div class="dropdown-menu" aria-labelledby="dropdown04">
 		              		<a class="dropdown-item" href="index.php?action=post&id=1">Chapitre 1 : Un mystérieux billet</a>
 		               		<a class="dropdown-item" href="index.php?action=post&id=2">Chapitre 2 : L'inconnu de l'A380</a>
-		                	<a class="dropdown-item" href="index.php?action=post&id=3">Chapitre 3 : Un bel horizon, un nouveau regard</a>
+		                	<a class="dropdown-item" href="index.php?action=post&id=4">Chapitre 3 : Un bel horizon, un nouveau regard</a>
 		                	<a class="dropdown-item" href="index.php">Autres chapitres</a>
 		             	</div>
 	            	</li>

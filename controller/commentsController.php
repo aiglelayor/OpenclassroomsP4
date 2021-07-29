@@ -38,3 +38,17 @@ function reportedComment()
 
 	require('view/reportedCommentsView.php');
 }
+
+function eraseComment($commentId)
+{
+	$commentManager = new CommentManager();
+	$eraseComment = $commentManager->eraseComment($commentId);
+
+	if ($eraseComment === false)
+	{
+		throw new Exception('Impossible de supprimer le commentaire.');
+	}
+	else {
+		header('Location: index.php?action=reportedComments');
+	}
+}

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -17,6 +16,15 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+		<script src="https://cdn.tiny.cloud/1/cjyum6e3ja0scdlceon58esyob6icmcnnw21llwrcjot2pnu/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+		<script>tinymce.init({
+			selector:'#content',
+			forced_root_block : "",
+			force_br_newlines : true,
+			force_p_newlines : false,
+		});
+		</script>
 	</head>
 	
 	<!-- <body>
@@ -53,7 +61,7 @@
 
 		<div id="newpost_content" class="container white_div my-5 mx-auto p-4 shadow-lg rounded">
 			<h1 class="text-center mb-5">Rédiger un nouvel article</h1>
-			<form id="newpost_content" class="pb-5 m-auto" action="index.php?action=newPost" method="post">
+			<form id="newpost_content" class="pb-5 m-auto" action="index.php?action=saveNewPost" method="post">
 				<div class="mb-3">
 					<?php
 					if(!empty($showErrors))
@@ -78,12 +86,11 @@
 				</div>
 				<div class="mb-3">
 					<label for="content">Contenu :</label>
-					<textarea class="form-control" rows="30" name="content" placeholder="Contenu de l'article" id="content" aria-describedby="" required><?php if(isset($_POST['content'])) {echo $_POST['content'];}?></textarea>
+					<textarea class="form-control" rows="60" name="content" placeholder="Contenu de l'article" id="content" aria-describedby="" required><?php if(isset($_POST['content'])) {echo $_POST['content'];}?></textarea>
 					<div id="passwordHelpBlock" class="form-text">
-						Si vous avez oublié votre mot de passe veuillez en demander un autre à l'adresse mail suivrante : <a href="mailto:contact@jeanforteroche.com">admin@forteroche.fr</a>.
 					</div>
 				</div>
-				<button type="submit" class="btn btn-primary" name="formnewpost">Publier l'article</button>
+				<input type="submit" class="btn btn-primary" name="formnewpost" value="Publier l'article">
 			</form>
 			<?php
 			if(isset($erreur))

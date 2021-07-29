@@ -66,31 +66,30 @@
 					<div class="col-sm-12 col-md-4 p-5" id="post_card_home">
 						<div class="card">
 							<div class="card-body">
-							<img class="card-img-top" src="public/images/slide1.jpg" alt="Un billet simple pour l'Alaska">
-							<h3 class="card-title">
-							    <?=htmlspecialchars($data['title']); ?>
-							</h3>
-							<p class="card-text">
-								Publié le <?=htmlspecialchars($data['date_creation_fr']); ?>
-							</p>
-							<p class="card-text">
-							    <?=htmlspecialchars($data['content_200chars']); ?>
-							</p>
-							<a href="index.php?action=post&id=<?=$data['id']; ?>"><input type="button" value="Lire la suite"></a>
+								<img class="card-img-top" src="public/images/slide1.jpg" alt="Un billet simple pour l'Alaska">
+								<h3 class="card-title">
+									<?=htmlspecialchars($data['title']); ?>
+								</h3>
+								<p class="card-text">
+									Publié le <?=htmlspecialchars($data['date_creation_fr']); ?>
+								</p>
+								<p class="card-text">
+									<?=htmlspecialchars($data['content_200chars']); ?>
+								</p>
+								<a href="index.php?action=post&id=<?=$data['id']; ?>"><input type="button" class="btn btn-primary px-2 py-1" value="Lire la suite"></a>
 
-							<?php 
-							if(!empty($_SESSION['id']) && !empty($_SESSION['isAdmin']))
-							{
+								<?php 
+								if(!empty($_SESSION['id']) && !empty($_SESSION['isAdmin']))
+								{
+									?>
+									<a href="index.php?action=editPost&id=<?=$data['id']; ?>"> <input type="button" class="btn btn-primary px-2 py-1" value="Modifier"></a>
+
+									<a href="index.php?action=deletePost&id=<?=$data['id'];?>"> <input type="button" class="btn btn-primary px-2 py-1" value="Supprimer"></a>
+								<?php
+								}
 								?>
-								<a href="index.php?action=editPost&id=<?=$data['id']; ?>"> <input type="button" value="Modifier"></a>
-
-								<a href="index.php?action=deletePost&id=<?=$data['id'];?>"> <input type="button" value="Supprimer"></a>
-							<?php
-							}
-							?>
+							</div>
 						</div>
-						</div>
-								
 					</div>
 				<?php
 				}

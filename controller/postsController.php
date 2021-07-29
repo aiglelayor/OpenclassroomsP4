@@ -44,6 +44,7 @@ function editPost()
 
 function savePost($title, $content)
 {
+	echo('here');
 	$postManager = new PostManager();
 
 	$errors = [];
