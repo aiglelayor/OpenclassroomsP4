@@ -19,44 +19,15 @@
 
 		<script src="https://cdn.tiny.cloud/1/cjyum6e3ja0scdlceon58esyob6icmcnnw21llwrcjot2pnu/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 		<script>tinymce.init({
-			selector:'#content',
+			selector:'#postContent',
+			language: "fr",
 			forced_root_block : "",
 			force_br_newlines : true,
 			force_p_newlines : false,
 		});
 		</script>
 	</head>
-	
-	<!-- <body>
-		<div align="center">
-			<h1>Rédiger un nouvel article</h1>
-			<a href="index.php">Retour à la liste des billets</a>
-
-			<form action="index.php?action=saveNewPost" method="post">
-				<table>
-					<tr>
-						<td>
-							<label for="title">Titre :
-						</td>
-						<td>
-							<input type="text" name="title" id="title" value="<?php if(isset($_POST['title'])) {
-									echo $_POST['title'];
-								}
-								?>">
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td>
-							<textarea id="post_content" name="content" cols="70" rows="30" placeholder="Rédigez ici..."required><?php if(isset($_POST['content'])) {echo $_POST['content'];}?></textarea>
-						</td>
-					</tr>
-
-				</table>
-			</form>
-		</div>
-	</body> -->
-	<body>
+	<body class="d-flex flex-column min-vh-100">
 		<?php require ('view/headerView.php');?>
 
 		<div id="newpost_content" class="container white_div my-5 mx-auto p-4 shadow-lg rounded">
@@ -82,15 +53,16 @@
 				</div>
 				<div class="mb-3">
 					<label for="title" class="form-label">Titre</label>
-					<input type="text" name="title" placeholder="Titre de l'article" class="form-control" id="title" value="<?php if(isset($_POST['title'])) {echo htmlspecialchars($_POST['title']);}?>">
+					<input type="text" name="title" placeholder="Titre de l'article" class="form-control" id="title" value="<?php if(isset($_POST['title'])) {echo ($_POST['title']);}?>">
 				</div>
 				<div class="mb-3">
-					<label for="content">Contenu :</label>
-					<textarea class="form-control" rows="60" name="content" placeholder="Contenu de l'article" id="content" aria-describedby="" required><?php if(isset($_POST['content'])) {echo htmlspecialchars($_POST['content']);}?></textarea>
+					<label for="postContent">Contenu :</label>
+					<textarea class="form-control" rows="60" name="content" placeholder="Contenu de l'article" id="postContent" aria-describedby="" required><?php if(isset($_POST['content'])) {echo ($_POST['content']);}?></textarea>
 					<div id="passwordHelpBlock" class="form-text">
 					</div>
 				</div>
-				<input type="submit" class="btn btn-primary" name="formnewpost" value="Publier l'article">
+				<!-- <button type="submit" class="btn btn-primary" name="formnewpost">Publier Article</button> -->
+				<input type="submit" class="btn btn-primary" name="formnewpost" value="Publier Article">
 			</form>
 			<?php
 			if(isset($erreur))
@@ -100,7 +72,9 @@
 			?>
 		</div>
 
-		<?php require ('view/footerView.php')?>
+		<footer class="mt-auto">
+			<?php require ('view/footerView.php')?>
+		</footer>
 
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

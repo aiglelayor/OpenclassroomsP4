@@ -20,6 +20,7 @@
 		<script src="https://cdn.tiny.cloud/1/cjyum6e3ja0scdlceon58esyob6icmcnnw21llwrcjot2pnu/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 		<script>tinymce.init({
 			selector:'#post_content',
+			language: "fr",
 			forced_root_block : "",
 			force_br_newlines : true,
 			force_p_newlines : false,
@@ -27,7 +28,7 @@
 		</script>
 	</head>
 	
-	<body>
+	<body class="d-flex flex-column min-vh-100">
 		<?php require ('view/headerView.php');?>
 
 		<div id="newpost_content" class="container white_div my-5 mx-auto p-4 shadow-lg rounded">
@@ -84,7 +85,9 @@
 			?>
 		</div>
 
-		<?php require ('view/footerView.php')?>
+		<footer class="mt-auto">
+			<?php require ('view/footerView.php')?>
+		</footer>
 
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

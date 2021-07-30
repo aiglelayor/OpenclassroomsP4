@@ -22,7 +22,7 @@
 
 	<section class="container">
 		<?php
-		if($_SESSION['comment_reported'])
+		if(isset($_SESSION['comment_reported']))
 		{
 		?>
 			<div class="alert alert-success" role="alert">
@@ -37,9 +37,6 @@
 		</div>
 		<p>
 			<?=htmlspecialchars($post['content'])?>
-			<?php
-			var_dump($post);
-			?>
 		</p>
 		
 		<h2 class="text-center pt-5">Laissez un commentaire :</h2>

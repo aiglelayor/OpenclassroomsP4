@@ -16,7 +16,7 @@ class PostManager
 		$db = $this->dbConnectManage->dbConnect();
 
 		$req = $db->query('SELECT id, title, SUBSTR(content, 1, 200) AS content_200chars, DATE_FORMAT(
-		date_creation, \'%d%m%Y à %Hh%imin%ss\') AS date_creation_fr FROM posts ORDER BY id DESC LIMIT 6');
+		date_creation, \'%d%m%Y à %Hh%imin%ss\') AS date_creation_fr FROM posts ORDER BY id DESC LIMIT 9');
 
 		$this->dbConnectManage->dbDisconnect();
 
@@ -45,7 +45,7 @@ class PostManager
 		$reqTitle->bindValue(':title', $title);
 		$reqTitle->execute();
 
-		$this->dbConnectManage->dbDisconnect();
+		//$this->dbConnectManage->dbDisconnect();
 	}
 
 	public function savePost($postId, $title, $content)
@@ -59,7 +59,7 @@ class PostManager
 			$postId
 		));
 
-		$this->dbConnectManage->dbDisconnect();
+		//$this->dbConnectManage->dbDisconnect();
 	}
 
 	public function saveNewPost($title, $content)
@@ -75,7 +75,7 @@ class PostManager
 			$_SESSION['new_article'] = "Votre article a bien a été créé !";
 		}
 
-		$this->dbConnectManage->dbDisconnect();
+		//$this->dbConnectManage->dbDisconnect();
 	}
 
 	public function deletePost($postId)
@@ -87,6 +87,6 @@ class PostManager
 			$postId
 		));
 
-		$this->dbConnectManage->dbDisconnect();
+		//$this->dbConnectManage->dbDisconnect();
 	}
 }
