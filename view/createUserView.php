@@ -18,7 +18,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
-<body>	
+<body class="d-flex flex-column min-vh-100">	
 	<?php require ('view/headerView.php');?>
 
 	<div class = "container white_div my-5 mx-auto p-4 shadow-lg rounded">
@@ -70,7 +70,10 @@
 		}
 		?>
 	</div>
-	<?php require ('view/footerView.php')?>
+
+	<footer class="mt-auto">
+		<?php require ('view/footerView.php')?>
+	</footer>
 
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
