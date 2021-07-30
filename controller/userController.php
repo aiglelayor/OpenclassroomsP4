@@ -35,34 +35,13 @@ function userLogin($pseudoconnect, $passconnect)
 		$pseudoconnect = $pseudoconnect;
 		require('view/userView.php');
 	}
-
-	//$userLogin = $userManager->login($pseudoconnect, $passconnect);
 }
 
 function userLogout()
 {
 	$userManager = new UserManager();
 	$userLogout = $userManager->logout();
-
-	//require('view/userDisconnectedView.php');
 }
-
-// function userExists($pseudo)
-// {
-// 	$userManager = new UserManager();
-// 	$userExists = $userManager->userExists($pseudo);
-
-// 	if($reqPseudo->rowCount() != 0)
-// 	{
-// 		$errors[] = '<div>Désolé, ce pseudo existe déjà, veuillez choisir un autre.</div>';
-// 	}
-// }
-
-// function emailExists($email)
-// {
-// 	$userManager = new UserManager();
-// 	$emailExists = $userManager->emailExists();
-// }
 
 function createUser($pseudo, $email, $pass)
 {
@@ -80,7 +59,7 @@ function createUser($pseudo, $email, $pass)
 	$pseudo = htmlspecialchars($_POST['pseudo']);
 	$email= htmlspecialchars($_POST['email']);
 
-	// verify pseudo
+	// Verify pseudo
 	if(!preg_match("#^[a-zA-Z0-9À-ú\.:\?\&',\s-]{3,25}#", $pseudo))
 	{
 		$errors[] = '<div>Votre pseudo doit contenir entre 2 et 25 caractères.</div>';
@@ -93,21 +72,21 @@ function createUser($pseudo, $email, $pass)
 		}
 	}
 
-	// verify pass
+	// Verify pass
 	if(empty($_POST['pass']))
 	{
 		$errors[] = '<div>Veuillez saisir un mot de passe.</div>';
 	}
 	elseif(!preg_match("#^[a-zA-Z0-9À-ú\.:\?\&',\s-]{5,25}#", $pass))
 	{
-		$errors[] = '<div>Votre mot de passe doit contenir entre 2 et 25 caractères.</div>';
+		$errors[] = '<div>Votre mot de passe doit contenir entre 5 et 25 caractères.</div>';
 	}
 	elseif ($_POST['pass'] != $_POST['pass_confirm'])
 	{
 		$errors[] = '<div>Les deux mots de passe ne sont pas identiques.</div>';
 	}
 
-	// verify email
+	// Verify email
 	if(!preg_match("#^[a-zA-Z0-9À-ú\.:\?\&',\s-]{3,25}#", $email))
 	{
 		$errors []= '<div>Veuillez saisir votre mail.</div>';;
@@ -116,7 +95,7 @@ function createUser($pseudo, $email, $pass)
 	{
 		$errors[] = '<div>L\'adresse mail est invalide.</div>';
 	}else {
-		// verify email exists in db
+		// Verify if email exists in db
 		$emailexists = $userManager->emailExists($email);
 
 		if($emailexists == 1)
@@ -131,7 +110,6 @@ function createUser($pseudo, $email, $pass)
 		$pseudo = $pseudo;
 		$email = $email;
 		require('view/createUserView.php');
-		//die(var_dump($requete->errorInfo()));
 	}else {
 		$createUser = $userManager->createUser($pseudo, $email, $pass);
 		require('view/userCreatedView.php');

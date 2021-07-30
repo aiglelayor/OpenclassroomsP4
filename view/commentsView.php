@@ -21,6 +21,17 @@
 	<?php require ('view/headerView.php')?>
 
 	<section class="container">
+		<?php
+		if($_SESSION['comment_reported'])
+		{
+		?>
+			<div class="alert alert-success" role="alert">
+			Merci ! Le commentaire a été signalé. Nous allons vérifier le contenu.
+			</div>
+		<?php
+		};
+		?>
+
 		<div class="row">
 			<h2 class="section_titre text-center my-5"><?=htmlspecialchars($post['title'])?></h2>
 		</div>

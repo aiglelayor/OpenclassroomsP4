@@ -1,22 +1,26 @@
 <?php
 
-try {
-	class DbConnectManager
-	{
+class DbConnectManager
+{
+  private $PDO;
 
-		protected function dbConnect()
-		{
-			$db = new PDO('mysql:host=localhost;dbname=blog_oc;charset=utf8', 'root', 'saradb', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-			return $db;
-			//var_dump($db);
-			// Close it here
-			// $sth = null;
-			$db = null;
-		die;
-		}
-	}
-}
-catch (PDOException $e) {
-		print "Erreur !: " . $e->getMessage() . "<br/>";
-		die();
+  function __construct()
+  {
+    try {
+      $this->PDO = new PDO('mysql:host=localhost;dbname=blog_oc;charset=utf8', 'root', 'saradb', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    } catch (PDOException $e) {
+      print "Erreur !: " . $e->getMessage() . "<br/>";
+      die();
+    }
+  }
+
+  function dbConnect()
+  {
+    return $this->PDO;
+  }
+
+  function dbDisconnect()
+  {
+    $this->PDO = null;
+  }
 }

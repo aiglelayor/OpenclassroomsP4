@@ -2,19 +2,26 @@
 
 require_once('Model/DbConnectManager.php');
 
-class UserManager extends DbConnectManager
+class UserManager
 {
+	private $dbConnectManage;
+
+	function __construct()
+	{
+	  $this->dbConnectManage = new DbConnectManager();
+	}
+
 	public function userInfo($pseudoconnect, $passconnect)
 	{
-		$db = $this->dbConnect();
+		$db = $this->dbConnectManage->dbConnect();
 		$requser = $db->prepare("SELECT * FROM members WHERE pseudo = ?");
-	
 		// On ajoute les champs qui correspondent à la requête dans un tableau.
 		$requser->execute(array($pseudoconnect));
-
 		$userinfo = $requser->fetch();
 
-		return $userinfo;	
+		return $userinfo;
+
+		$this->dbConnectManage->dbDisconnect();
 	}
 
 	public function logout()
@@ -26,33 +33,34 @@ class UserManager extends DbConnectManager
 
 	public function userExists($pseudo)
 	{
-		$db = $this->dbConnect();
-		$requser = $db->prepare("SELECT * FROM members WHERE pseudo = ?");
-	
-		// On ajoute les champs qui correspondent à la requête dans un tableau.
-		$requser->execute(array($pseudo));
+		$db = $this->dbConnectManage->dbConnect();
 
+		$requser = $db->prepare("SELECT * FROM members WHERE pseudo = ?");
+		$requser->execute(array($pseudo));
 		$userexists = $requser->rowCount();
 
 		return $userexists;
+
+		$this->dbConnectManage->dbDisconnect();
 	}
 
 	public function emailExists($email)
 	{
-		$db = $this->dbConnect();
-		$reqemail = $db->prepare("SELECT * FROM members WHERE email = ?");
-	
-		// On ajoute les champs qui correspondent à la requête dans un tableau.
-		$reqemail->execute(array($email));
+		$db = $this->dbConnectManage->dbConnect();
 
+		$reqemail = $db->prepare("SELECT * FROM members WHERE email = ?");
+		$reqemail->execute(array($email));
 		$mailexists = $reqemail->rowCount();
 
-		return $mailexists;		
+		return $mailexists;
+
+		$this->dbConnectManage->dbDisconnect();
 	}
 
 	public function createUser($pseudo, $email, $pass)
 	{
-		$db = $this->dbConnect();
+		$db = $this->dbConnectManage->dbConnect();
+
 		$pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 		$req = $db->prepare('INSERT INTO members(pseudo, pass, email, subscription_date) VALUES(:pseudo, :pass, :email, CURDATE())');
 		$req->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
@@ -63,5 +71,7 @@ class UserManager extends DbConnectManager
 		{
 			$_SESSION['new_account_created'] = "Votre compte a bien été créé ! Bienvenue !";
 		}
+
+		$this->dbConnectManage->dbDisconnect();
 	}
 }
