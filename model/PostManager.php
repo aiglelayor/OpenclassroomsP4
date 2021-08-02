@@ -44,8 +44,6 @@ class PostManager
 		$reqTitle = $db->prepare('SELECT title FROM posts WHERE title = :title');
 		$reqTitle->bindValue(':title', $title);
 		$reqTitle->execute();
-
-		//$this->dbConnectManage->dbDisconnect();
 	}
 
 	public function savePost($postId, $title, $content)
@@ -58,8 +56,6 @@ class PostManager
 			$content,
 			$postId
 		));
-
-		//$this->dbConnectManage->dbDisconnect();
 	}
 
 	public function saveNewPost($title, $content)
@@ -74,8 +70,6 @@ class PostManager
 		{
 			$_SESSION['new_article'] = "Votre article a bien a été créé !";
 		}
-
-		//$this->dbConnectManage->dbDisconnect();
 	}
 
 	public function deletePost($postId)
@@ -86,7 +80,5 @@ class PostManager
 		$reqExecute = $req->execute(array(
 			$postId
 		));
-
-		//$this->dbConnectManage->dbDisconnect();
 	}
 }

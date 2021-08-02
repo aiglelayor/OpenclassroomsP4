@@ -114,5 +114,4 @@ function createUser($pseudo, $email, $pass)
 		$createUser = $userManager->createUser($pseudo, $email, $pass);
 		require('view/userCreatedView.php');
 	}
-
 }

@@ -29,6 +29,7 @@
 	</head>
 	
 	<body class="d-flex flex-column min-vh-100">
+		
 		<?php require ('view/headerView.php');?>
 
 		<div id="newpost_content" class="container white_div my-5 mx-auto p-4 shadow-lg rounded">

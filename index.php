@@ -2,8 +2,6 @@
 
 session_start();
 
-//require('controller/dbConnectController.php');
-
 require('controller/postsController.php');
 
 require('controller/commentsController.php');
