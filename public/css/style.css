@@ -82,8 +82,7 @@ abbr[data-original-title] {
   -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
   cursor: help;
-  border-bottom: 0;
-  text-decoration-skip-ink: none; }
+  border-bottom: 0; }
 
 address {
   margin-bottom: 1rem;
@@ -4659,7 +4658,6 @@ a.close.disabled {
   -webkit-box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
   -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
   opacity: 0;
   border-radius: 0.25rem; }
   .toast:not(:last-child) {
@@ -8196,8 +8194,7 @@ h1, h2, h3, h4, h5,
     .social-media p a span {
       color: #fff; }
     .social-media p a:hover {
-      background: #74b8f1;
-      border-color: none; }
+      background: #74b8f1; }
       .social-media p a:hover span {
         color: #fff; }
 
