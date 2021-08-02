@@ -17,7 +17,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	</head>
-<body class="d-flex flex-column min-vh-100">
+	<body class="d-flex flex-column min-vh-100">
 	<?php require ('view/headerView.php');?>
 
 	<div class="container white_div my-5 mx-auto p-4 shadow-lg rounded">

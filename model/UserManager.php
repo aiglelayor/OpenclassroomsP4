@@ -67,11 +67,6 @@ class UserManager
 		$req->bindValue(':email', $email, PDO::PARAM_STR);
 		$req->bindValue(':pass', $pass, PDO::PARAM_STR);
 
-		if($req->execute())
-		{
-			$_SESSION['new_account_created'] = "Votre compte a bien été créé ! Bienvenue !";
-		}
-
 		$this->dbConnectManage->dbDisconnect();
 	}
 }

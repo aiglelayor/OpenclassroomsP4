@@ -51,7 +51,7 @@ class CommentManager
 
 		if($req->execute())
 		{
-			$_SESSION['comment_reported'] = "Le commentaire a été signalé. Merci de l'avoir fait, nous allons vérifier le contenu.";
+			$_SESSION['comment_reported'] = "Merci ! Le commentaire a été signalé. Nous allons vérifier le contenu.";
 		}
 
 		$this->dbConnectManage->dbDisconnect();

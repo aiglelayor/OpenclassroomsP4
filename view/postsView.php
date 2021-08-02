@@ -18,9 +18,22 @@
 	</head>
 	<body>
 
-		<?php require ('view/headerView.php');?>
+		<?php require ('view/headerView.php');?>	
 
 		<div class="container">
+			<?php
+			if(!empty($_SESSION['must_logout']))
+			{
+			?>
+			<div class="alert alert-danger fade-in" role="alert">
+				<a href="#" class="close" data-dismiss="alert">&times;</a>
+				<?php echo $_SESSION['must_logout']; ?>
+				<!-- <a class="link-danger" href="index.php?action=userLogout">Se déconnecter</a> -->
+			</div>	
+			<?php						
+			};
+			unset($_SESSION['must_logout']);
+			?>	
 		  <div id="alaskaCarousel" class="carousel slide" data-ride="carousel">
 		    <!-- Indicators -->
 		    <ol class="carousel-indicators">

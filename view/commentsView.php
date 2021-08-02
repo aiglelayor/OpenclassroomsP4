@@ -25,11 +25,13 @@
 		if(isset($_SESSION['comment_reported']))
 		{
 		?>
-			<div class="alert alert-success" role="alert">
-			Merci ! Le commentaire a été signalé. Nous allons vérifier le contenu.
+			<div class="alert alert-success fade-in" role="alert">
+			<a href="#" class="close" data-dismiss="alert">&times;</a>
+			<?php echo $_SESSION['comment_reported']; ?>
 			</div>
 		<?php
 		};
+		unset($_SESSION['comment_reported']);
 		?>
 
 		<div class="row">

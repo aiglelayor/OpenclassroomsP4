@@ -80,7 +80,13 @@ try {
 		}
 		elseif($_GET['action'] == 'formCreateUser')
 		{
-			require('view/createUserView.php');
+			if(!empty($_SESSION['id']))
+			{
+				$_SESSION['must_logout'] = "Attention ! Vous devez vous déconnecter avant de créer un autre compte.";
+				header("Location: index.php");					
+			}else{
+				require('view/createUserView.php');
+			}
 		}
 		elseif($_GET['action'] == 'createUser')
 		{
