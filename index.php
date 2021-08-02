@@ -123,7 +123,7 @@ try {
 				if(!empty($_POST['formeditpost']))
 				{
 					$title = htmlspecialchars($_POST['title']);
-					$content = htmlspecialchars($_POST['content']);
+					$content = $_POST['content'];
 				 	savePost($title, $content);
 				}
 
@@ -149,10 +149,11 @@ try {
 		}
 		elseif($_GET['action'] == 'saveNewPost')
 		{
+			var_dump($_POST);
 			if(!empty($_POST['formnewpost']))
 			{
 				$title = htmlspecialchars($_POST['title']);
-				$content = htmlspecialchars($_POST['content']);
+				$content = $_POST['content'];
 			 	savePost($title, $content);
 			}
 		}

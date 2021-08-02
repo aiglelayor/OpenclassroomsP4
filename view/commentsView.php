@@ -36,7 +36,7 @@
 			<h2 class="section_titre text-center my-5"><?=htmlspecialchars($post['title'])?></h2>
 		</div>
 		<p>
-			<?=htmlspecialchars($post['content'])?>
+			<?=$post['content']?>
 		</p>
 		
 		<h2 class="text-center pt-5">Laissez un commentaire :</h2>

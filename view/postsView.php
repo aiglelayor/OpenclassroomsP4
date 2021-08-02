@@ -74,7 +74,7 @@
 									Publié le <?=htmlspecialchars($data['date_creation_fr']); ?>
 								</p>
 								<p class="card-text">
-									<?=htmlspecialchars($data['content_200chars']); ?>
+									<?=$data['content_200chars']; ?>
 								</p>
 								<a href="index.php?action=post&id=<?=$data['id']; ?>"><input type="button" class="btn btn-primary px-2 py-1" value="Lire la suite"></a>
 

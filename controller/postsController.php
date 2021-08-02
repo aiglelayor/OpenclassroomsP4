@@ -53,10 +53,10 @@ function savePost($title, $content)
 	$title = '';
 	$content = '';
 
-	$title = htmlspecialchars($_POST['title']);
-	$content = htmlspecialchars($_POST['content']);
+	$title = $_POST['title'];
+	$content = $_POST['content'];
 
-	if(!preg_match("#^[a-zA-Z0-9À-ú\.:\?\&',\s-]{3,51}#", $title))
+	if(!preg_match("#^[a-zA-Z0-9À-ú\.:\?\&'<>,\s-]{3,51}#", $title))
 	{
 		$errors[] = '<div>Votre titre doit comporter entre 2 et 50 caractères.</div>';
 	}else {
@@ -68,7 +68,7 @@ function savePost($title, $content)
 		}
 	}
 
-	if(!preg_match("#^[a-zA-Z0-9À-ú\.:\?\&',\s-]{3,2001}#", $content))
+	if(!preg_match("#^[a-zA-Z0-9À-ú\.:\?\&'<>,\s-]{3,2001}#", $content))
 	{
 		$errors[] = '<div>Votre article doit comporter entre 2 et 2000 caractères.</div>';
 	}

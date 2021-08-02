@@ -56,9 +56,9 @@
 					<label for="title" class="form-label">Titre</label>
 					<input type="text" name="title" placeholder="Titre de l'article" class="form-control" id="title" value="<?php if(isset($post))
 							{
-								echo htmlspecialchars($post['title']);
+								echo ($post['title']);
 							}elseif(isset($_POST)) {
-								echo htmlspecialchars($_POST['title']);
+								echo ($_POST['title']);
 							}
 							?>">
 				</div>
@@ -67,9 +67,9 @@
 					<textarea class="form-control" rows="30" name="content" placeholder="Contenu de l'article" id="post_content" aria-describedby="" required><?php
 							if(isset($post))
 							{
-								echo htmlspecialchars($post['content']);
+								echo ($post['content']);
 							}elseif(isset($_POST)) {
-								echo htmlspecialchars($_POST['content']);
+								echo ($_POST['content']);
 							}
 							?></textarea>
 					<div id="passwordHelpBlock" class="form-text">

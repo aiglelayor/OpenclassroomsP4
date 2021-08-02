@@ -19,7 +19,7 @@
 
 		<script src="https://cdn.tiny.cloud/1/cjyum6e3ja0scdlceon58esyob6icmcnnw21llwrcjot2pnu/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 		<script>tinymce.init({
-			selector:'#postContent',
+			selector:'#post_content',
 			language: "fr",
 			forced_root_block : "",
 			force_br_newlines : true,
@@ -53,15 +53,16 @@
 				</div>
 				<div class="mb-3">
 					<label for="title" class="form-label">Titre</label>
-					<input type="text" name="title" placeholder="Titre de l'article" class="form-control" id="title" value="<?php if(isset($_POST['title'])) {echo ($_POST['title']);}?>">
+					<input type="text" name="title" placeholder="Titre de l'article" class="form-control" id="title" value="<?php if(isset($_POST['title'])){echo ($_POST['title']);}?>">
 				</div>
 				<div class="mb-3">
-					<label for="postContent">Contenu :</label>
-					<textarea class="form-control" rows="60" name="content" placeholder="Contenu de l'article" id="postContent" aria-describedby="" required><?php if(isset($_POST['content'])) {echo ($_POST['content']);}?></textarea>
-					<div id="passwordHelpBlock" class="form-text">
-					</div>
+					<label for="post_content">Contenu :</label>
+					<textarea class="form-control" rows="30" name="content" placeholder="Contenu de l'article" id="post_content"  aria-describedby="">
+						<?php if(isset($_POST['content']))
+						{
+							echo ($_POST['content']);
+						}?> </textarea>
 				</div>
-				<!-- <button type="submit" class="btn btn-primary" name="formnewpost">Publier Article</button> -->
 				<input type="submit" class="btn btn-primary" name="formnewpost" value="Publier Article">
 			</form>
 			<?php

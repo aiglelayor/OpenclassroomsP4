@@ -62,7 +62,6 @@
 		}
 		?>
 	</div>
-
 	
 	<footer class="mt-auto">
 		<?php require ('view/footerView.php')?>
