@@ -47,7 +47,7 @@
 					<input type="text" name="pseudo" placeholder="Pseudo" class="form-control" id="pseudo" value="<?php if(isset($pseudo)) { echo htmlspecialchars($pseudo); } ?>">
 				</div>
 				<div class="mb-3">
-					<label for="email" class="form-label">Pseudo</label>
+					<label for="email" class="form-label">Mail</label>
 					<input type="email" name="email" placeholder="Votre mail" class="form-control" id="email" value="<?php if(isset($email)) { echo htmlspecialchars($email); } ?>">
 				</div>
 				<div class="mb-3">

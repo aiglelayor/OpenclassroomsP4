@@ -153,7 +153,6 @@ try {
 		}
 		elseif($_GET['action'] == 'saveNewPost')
 		{
-			var_dump($_POST);
 			if(!empty($_POST['formnewpost']))
 			{
 				$title = htmlspecialchars($_POST['title']);
