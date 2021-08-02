@@ -1,6 +1,6 @@
 <?php
 
-require_once('Model/UserManager.php');
+require_once('model/UserManager.php');
 
 function userLogin($pseudoconnect, $passconnect)
 {
