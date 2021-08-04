@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
 	<header>
 		<div class="wrap">
 			<div class="container">
@@ -29,7 +27,7 @@
 				<form action="#" class="searchform order-sm-start order-lg-last">
 					<div class="form-group d-flex">
 						<input type="text" class="form-control pl-3" placeholder="Search">
-						<button type="submit" placeholder="" class="form-control search"><span class="fa fa-search"></span></button>
+						<button type="submit" class="form-control search"><span class="fa fa-search"></span></button>
 					</div>
 				</form>
 
@@ -63,7 +61,7 @@
 				<span class="fa fa-bars"></span> Menu
 				</button>
 
-				<div class="collapse navbar-collapse" id="ftco-nav">
+				<div class="collapse navbar-collapse">
 					<ul class="navbar-nav m-auto">
 						<li class="nav-item active"><a href="index.php" class="nav-link">Accueil</a>
 						</li>
@@ -101,4 +99,3 @@
 			</div>
 		</nav>
 	</header>
-</html>

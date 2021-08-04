@@ -67,36 +67,34 @@
 		    </a>
 		  </div>
 		</div>
-			<div class="row">
+			<div>
 				<h2 class="section_titre text-center my-5">CHAPITRES PUBLIÉS</h2>
 			</div>
 			<div class="container">
-			<?php
+				<?php
 				while ($data = $posts->fetch())
 				{
 				?>
-					<div class="col-sm-12 col-md-4 p-5" id="post_card_home">
+					<div class="col-sm-12 col-md-6 col-lg-4 p-4">
 						<div class="card">
 							<div class="card-body">
 								<img class="card-img-top" src="public/images/slide1.jpg" alt="Un billet simple pour l'Alaska">
 								<h3 class="card-title">
 									<?=htmlspecialchars($data['title']); ?>
 								</h3>
-								<p class="card-text">
+								<p>
 									Publié le <?=htmlspecialchars($data['date_creation_fr']); ?>
 								</p>
-								<p class="card-text">
-									<?=$data['content_200chars']; ?>
-								</p>
-								<a href="index.php?action=post&id=<?=$data['id']; ?>"><input type="button" class="btn btn-primary px-2 py-1" value="Lire la suite"></a>
+								<p class="card-text"><?=$data['content_200chars']; ?>...</p>
+								<a href="index.php?action=post&id=<?=$data['id']; ?>" class="btn btn-primary px-2 py-1">Lire la suite</a>
 
 								<?php 
 								if(!empty($_SESSION['id']) && !empty($_SESSION['isAdmin']))
 								{
-									?>
-									<a href="index.php?action=editPost&id=<?=$data['id']; ?>"> <input type="button" class="btn btn-primary px-2 py-1" value="Modifier"></a>
+								?>
+									<a href="index.php?action=editPost&id=<?=$data['id']; ?>" class="btn btn-primary px-2 py-1">Modifier</a>
 
-									<a href="index.php?action=deletePost&id=<?=$data['id'];?>"> <input type="button" class="btn btn-primary px-2 py-1" value="Supprimer"></a>
+									<a href="index.php?action=deletePost&id=<?=$data['id'];?>" class="btn btn-primary px-2 py-1">Supprimer</a>
 								<?php
 								}
 								?>
@@ -110,9 +108,9 @@
 			</div>
 		</div>
 		
-		<footer class="mt-auto">
+		<div class="mt-auto">
 			<?php require ('view/footerView.php')?>
-		</footer>
+		</div>
 
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
