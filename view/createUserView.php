@@ -58,10 +58,10 @@
 					<label for="pass_confirm" class="form-label">Confirmer mot de passe</label>
 					<input type="password" name="pass_confirm" class="form-control" id="pass_confirm" placeholder="Confirmer mot de passe">
 					<div id="passwordHelpBlock" class="form-text">
-						Votre pseudo doit comporter entre 2 et 25 caractères. Utilisez des majuscules, des minuscules et des numéros afin de sécuriser votre mot de passe.
+						Votre pseudo doit comporter entre 5 et 25 caractères. Utilisez des majuscules, des minuscules et des numéros afin de sécuriser votre mot de passe.
 					</div>
 				</div>
-				<button type="submit" class="btn btn-primary" name="forminscription">Créer compte</button>
+				<input type="submit" class="btn btn-primary" name="forminscription" value="Créer compte">
 			</form>
 			<?php
 			if(isset($erreur))

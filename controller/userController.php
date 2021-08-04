@@ -60,9 +60,9 @@ function createUser($pseudo, $email, $pass)
 	$email= htmlspecialchars($_POST['email']);
 
 	// Verify pseudo
-	if(!preg_match("#^[a-zA-Z0-9À-ú\.:\?\&',\s-]{3,25}#", $pseudo))
+	if(!preg_match("#^[a-zA-Z0-9À-ú\.:\?\&',\s-]{5,25}#", $pseudo))
 	{
-		$errors[] = '<div>Votre pseudo doit contenir entre 2 et 25 caractères.</div>';
+		$errors[] = '<div>Votre pseudo doit contenir entre 5 et 25 caractères.</div>';
 	}else {
 		$userexists = $userManager->userExists($pseudo);
 

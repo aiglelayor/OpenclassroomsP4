@@ -94,10 +94,8 @@ try {
 
 			// Putting $_POST keys in a array
 			if (!empty($pseudo) AND !empty($pass) AND !empty($pass))
-			{
-				
+			{	
 				createUser($_POST['pseudo'], $_POST['email'], $_POST['pass']);
-
 			}
 			else {
 				$errors[] = 'Tous les champs doivent être complétés.';
