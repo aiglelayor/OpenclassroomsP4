@@ -28,7 +28,6 @@
 			<div class="alert alert-danger fade-in" role="alert">
 				<a href="#" class="close" data-dismiss="alert">&times;</a>
 				<?php echo $_SESSION['must_logout']; ?>
-				<!-- <a class="link-danger" href="index.php?action=userLogout">Se déconnecter</a> -->
 			</div>	
 			<?php						
 			};

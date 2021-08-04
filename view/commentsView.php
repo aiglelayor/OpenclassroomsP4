@@ -47,7 +47,7 @@
 			<table>
 				<div class="form-group">
 					<?php
-						if(empty($_SESSION))
+						if(!isset($_SESSION['pseudo']))
 						{
 					?>
 						<label for="pseudo">Votre nom : </label>
@@ -80,7 +80,7 @@
 						<strong><?=htmlspecialchars($com['author'])?></strong> le <?=htmlspecialchars($com['comment_date_fr'])?> </br><?=htmlspecialchars($com['comment'])?>
 					</p>
 					<?php
-					if(!empty($_SESSION))
+					if(isset($_SESSION['pseudo']))
 					{
 					?>
 						<a href="index.php?action=reportComment&comId=<?=$com['id']; ?>&amp;id=<?=$post['id']; ?>"><button type="button" class="btn btn-warning">Signaler</button></a>
