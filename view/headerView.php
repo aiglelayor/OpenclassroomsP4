@@ -19,7 +19,6 @@
 				</div>
 			</div>
 		</div>
-
 		<nav class="navbar navbar-expand-lg ftco-navbar-light" id="ftco-navbar">
 			<div class="container">
 				<a class="navbar-brand" href="index.php?action=listPosts">Jean Forteroche <span>Écrivain</span></a>
